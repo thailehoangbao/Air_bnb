@@ -9,7 +9,7 @@ const Routes = [
         nested: [
             {
                 path: '',
-                element: lazy(() => import('./../Pages/HomeTemplates/HomePage/Homepage'))
+                element: lazy(() => import('./../Pages/HomeTemplates/HomePage/HomePage'))
             },
             {
                 path: 'detail/:id',
