@@ -26,6 +26,34 @@ const Routes = [
         ]
     },
     {
+        path: `/admin`,
+        element: lazy(() => import('../Pages/AdminTemplates')),
+        nested: [
+            {
+                path: 'user',
+                element: lazy(() => import('../Pages/AdminTemplates/User')),
+            },
+            {
+                path: 'room',
+                element: lazy(() => import('../Pages/AdminTemplates/Room')),
+            },
+            {
+                path: 'location',
+                element: lazy(() => import('../Pages/AdminTemplates/Location')),
+            },
+            {
+                path: 'booking',
+                element: lazy(() => import('../Pages/AdminTemplates/Booking')),
+            },
+            
+        ]
+    },
+    {
+        path: `/auth`,
+        element: lazy(() => import('./../Pages/AdminTemplates/Auth')),
+    },
+
+    {
         path: `/login`,
         element: lazy(() => import('./../Pages/HomeTemplates/Login/LoginHome')),
     },
