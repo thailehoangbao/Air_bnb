@@ -1,7 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './Header.css';
+import HeaderTop from './HeaderTop/HeaderTop';
 
 export default function Header() {
   return (
-    <div>Header</div>
+    <header>
+      <div className='header-top'>
+        <HeaderTop  />
+      </div>
+    </header>
   )
 }
