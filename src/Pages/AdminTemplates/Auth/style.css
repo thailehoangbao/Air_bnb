@@ -1,0 +1,13 @@
+.auth{
+    background-image: url(https://demo4.cybersoft.edu.vn/static/media/logo_login.a444f2681cc7b623ead2.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+.auth-child {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

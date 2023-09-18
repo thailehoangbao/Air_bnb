@@ -8,7 +8,7 @@ import {
   PhoneOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, Navigate } from 'react-router-dom';
 const { Header, Sider, Content } = Layout;
 
 export default function AdminTemplates() {
@@ -16,6 +16,11 @@ export default function AdminTemplates() {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  // kiểm tra có login vào hệ thống chưa?
+if(!localStorage.getItem("USER_LOGIN")){
+  // chuyển lại trang đăng nhập
+  return <Navigate to="/auth" replace />
+};
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
