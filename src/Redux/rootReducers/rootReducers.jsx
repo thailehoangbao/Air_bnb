@@ -6,6 +6,10 @@ import layDanhSachViTriReducer from 'Pages/HomeTemplates/_components/Header/Head
 import {combineReducers} from 'redux';
 import authReducer from 'Pages/AdminTemplates/Auth/duck/reducer';
 import userReducer from 'Pages/AdminTemplates/User/duck/reducer';
+import modalDetailSuccessReducer from 'Pages/HomeTemplates/DetailPage/_components/Modal/duckModal/reducerModal';
+import binhLuanThueReducer from 'Pages/HomeTemplates/DetailPage/BinhLuan/duckBinhLuan/reducerBinhLuan';
+import chiTietPhongThueReducer from 'Pages/HomeTemplates/DetailPage/duckDetail/reducerDetail';
+import danhSachPhongDatReducer from 'Pages/HomeTemplates/DetailPage/PopupDatPhong/duckDatPhong/reducerDatPhong';
 const rootReducer = combineReducers({
     layDanhSachViTriReducer: layDanhSachViTriReducer,
     listPhongThueReducer: listPhongThueReducer,
@@ -14,6 +18,10 @@ const rootReducer = combineReducers({
     isOpenModalEditUserReducer: isOpenModalEditUserReducer,
     authReducer,
     userReducer,
+    modalDetailSuccessReducer : modalDetailSuccessReducer,
+    binhLuanThueReducer : binhLuanThueReducer,
+    chiTietPhongThueReducer: chiTietPhongThueReducer,
+    danhSachPhongDatReducer : danhSachPhongDatReducer
 });
 
 export default rootReducer;
