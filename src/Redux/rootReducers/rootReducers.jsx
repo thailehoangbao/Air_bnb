@@ -10,6 +10,7 @@ import modalDetailSuccessReducer from 'Pages/HomeTemplates/DetailPage/_component
 import binhLuanThueReducer from 'Pages/HomeTemplates/DetailPage/BinhLuan/duckBinhLuan/reducerBinhLuan';
 import chiTietPhongThueReducer from 'Pages/HomeTemplates/DetailPage/duckDetail/reducerDetail';
 import danhSachPhongDatReducer from 'Pages/HomeTemplates/DetailPage/PopupDatPhong/duckDatPhong/reducerDatPhong';
+import phongThueTheoMaViTriReducer from 'Pages/HomeTemplates/SearchPage/duckSearchPage/reducerSearchPage';
 const rootReducer = combineReducers({
     layDanhSachViTriReducer: layDanhSachViTriReducer,
     listPhongThueReducer: listPhongThueReducer,
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     modalDetailSuccessReducer : modalDetailSuccessReducer,
     binhLuanThueReducer : binhLuanThueReducer,
     chiTietPhongThueReducer: chiTietPhongThueReducer,
-    danhSachPhongDatReducer : danhSachPhongDatReducer
+    danhSachPhongDatReducer : danhSachPhongDatReducer,
+    phongThueTheoMaViTriReducer : phongThueTheoMaViTriReducer
 });
 
 export default rootReducer;
