@@ -6,6 +6,7 @@ import { actFetchChiTietPhongThue } from './duckDetail/actDetail';
 import BinhLuan from './BinhLuan/BinhLuan';
 import { USER_LOGIN } from 'Utils/_constantsUtils';
 import ModalBtn from './_components/Modal/ModalBtn';
+import { actModalDetailSuccess } from './_components/Modal/duckModal/actModal';
 
 export default function DetailPage() {
     const navigate = useNavigate();
@@ -212,7 +213,9 @@ export default function DetailPage() {
                 </div>
             </div>
             {isOpenModal ? 
-            <div className='ModalBtn_Layout'>
+            <div className='ModalBtn_Layout' onClick={() =>  {
+                dispatch(actModalDetailSuccess(false));
+            }}>
                 <ModalBtn />
             </div> : ''}
         </div>
