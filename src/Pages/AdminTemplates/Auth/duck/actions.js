@@ -18,19 +18,17 @@ export const actFetchAuth = (user, navigate) => {
                             title: "Bạn không có quyền truy cập!",
                             icon: "error"
                         })
-                        // return Promise.reject();
-
                     } else {
                         MySwal.fire({
                             title: "Đăng nhập thành công!",
                             icon: "success"
+                        }).then(() => {
+                            dispatch(actAuthSuccess(user));
+                            localStorage.setItem('USER_LOGIN', JSON.stringify(user));
+                            localStorage.setItem('token', JSON.stringify(token));
+                            navigate("/admin/user", { replace: true });
                         })
-                        dispatch(actAuthSuccess(user));
-                        localStorage.setItem('USER_LOGIN', JSON.stringify(user));
-                        localStorage.setItem('token', JSON.stringify(token));
-                        navigate("/admin/user", { replace: true });
                     }
-                   
                 }
             })
             .catch((error) => {

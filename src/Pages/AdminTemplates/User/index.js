@@ -3,10 +3,9 @@ import { Input, Button, Space, Table, Modal } from 'antd';
 import {
   EditOutlined, DeleteOutlined
 } from '@ant-design/icons';
-import { actAddUser, actDeleteUser, actFetchUser, actGetUser, actUpdateUser } from './duck/actions';
+import { actAddUser, actDeleteUser, actFetchUser, actGetUser, actUpdateUser, actSearchUser } from './duck/actions';
 import { useDispatch, useSelector } from 'react-redux';
 const { Search } = Input;
-const onSearch = (value) => console.log(value);
 
 export default function User() {
   const dataFetch = useSelector((state) => state.userReducer.dataFetch);
@@ -113,7 +112,15 @@ export default function User() {
 
   const handleDelete = (id) => {
     dispatch(actDeleteUser(id));
-  }
+  };
+
+  const handleSearch = (value) => {
+    if (value !== '') {
+      dispatch(actSearchUser(value));
+    } else {
+      dispatch(actFetchUser());
+    }
+  };
 
   const handleValidation = (e) => {
     const { name, value } = e.target;
@@ -224,7 +231,7 @@ export default function User() {
           <Search
             className='bg-blue-600 rounded-lg w-4/5 sm:w-1/2 md:w-2/5'
             placeholder="input the username"
-            onSearch={onSearch}
+            onSearch={(value) => {handleSearch(value)}}
             enterButton
             size={"large"} />
           <Button size={"large"} className='ml-3 font-medium bg-blue-600 text-white' onClick={() => showModal(true, -1)}>Add users</Button>

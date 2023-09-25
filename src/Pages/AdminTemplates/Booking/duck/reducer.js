@@ -1,4 +1,4 @@
-import { GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAIL, ADD_USER_REQUEST, ADD_USER_SUCCESS, ADD_USER_FAIL, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAIL, UPDATE_USER_REQUEST, UPDATE_USER_SUCCESS, UPDATE_USER_FAIL, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAIL } from "./constants";
+import { GET_BOOKING_REQUEST, GET_BOOKING_SUCCESS, GET_BOOKING_FAIL, ADD_BOOKING_REQUEST, ADD_BOOKING_SUCCESS, ADD_BOOKING_FAIL, FETCH_BOOKING_REQUEST, FETCH_BOOKING_SUCCESS, FETCH_BOOKING_FAIL, UPDATE_BOOKING_REQUEST, UPDATE_BOOKING_SUCCESS, UPDATE_BOOKING_FAIL, DELETE_BOOKING_REQUEST, DELETE_BOOKING_SUCCESS, DELETE_BOOKING_FAIL } from "./constants";
 
 const initialState = {
     loadingFetch: false,
@@ -20,123 +20,102 @@ const initialState = {
     loadingDelete: false,
     dataDelete: null,
     errorDelete: null,
-
-    loadingSearch: false,
-    dataSearch: null,
-    errorSearch: null,
 }
-const userReducer = (state = initialState, action) => {
+
+const bookingReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_USER_REQUEST:
+        case FETCH_BOOKING_REQUEST:
             state.loadingFetch = true;
             state.dataFetch = null;
             state.errorFetch = null;
             return { ...state };
 
-        case FETCH_USER_SUCCESS:
+        case FETCH_BOOKING_SUCCESS:
             state.loadingFetch = false;
             state.dataFetch = action.payload;
             state.errorFetch = null;
             return { ...state };
 
-        case FETCH_USER_FAIL:
+        case FETCH_BOOKING_FAIL:
             state.loadingFetch = false;
             state.dataFetch = null;
             state.errorFetch = action.payload;
             return { ...state };
 
-        case ADD_USER_REQUEST:
+        case ADD_BOOKING_REQUEST:
             state.loadingAdd = true;
             state.dataAdd = null;
             state.errorAdd = null;
             return { ...state };
 
-        case ADD_USER_SUCCESS:
+        case ADD_BOOKING_SUCCESS:
             state.loadingAdd = false;
             state.dataAdd = action.payload;
             state.errorAdd = null;
             return { ...state };
 
-        case ADD_USER_FAIL:
+        case ADD_BOOKING_FAIL:
             state.loadingAdd = false;
             state.dataAdd = null;
             state.errorAdd = action.payload;
             return { ...state };
 
-        case GET_USER_REQUEST:
+        case GET_BOOKING_REQUEST:
             state.loadingGet = true;
             state.dataGet = null;
             state.errorGet = null;
             return { ...state };
 
-        case GET_USER_SUCCESS:
+        case GET_BOOKING_SUCCESS:
             state.loadingGet = false;
             state.dataGet = action.payload;
             state.errorGet = null;
             return { ...state };
 
-        case GET_USER_FAIL:
+        case GET_BOOKING_FAIL:
             state.loadingGet = false;
             state.dataGet = null;
             state.errorGet = action.payload;
             return { ...state };
 
-        case UPDATE_USER_REQUEST:
+            case UPDATE_BOOKING_REQUEST:
             state.loadingUpdate = true;
             state.dataUpdate = null;
             state.errorUpdate = null;
             return { ...state };
 
-        case UPDATE_USER_SUCCESS:
+        case UPDATE_BOOKING_SUCCESS:
             state.loadingUpdate = false;
             state.dataUpdate = action.payload;
             state.errorUpdate = null;
             return { ...state };
 
-        case UPDATE_USER_FAIL:
+        case UPDATE_BOOKING_FAIL:
             state.loadingUpdate = false;
             state.dataUpdate = null;
             state.errorUpdate = action.payload;
             return { ...state };
 
-        case DELETE_USER_REQUEST:
+            case DELETE_BOOKING_REQUEST:
             state.loadingDelete = true;
             state.dataDelete = null;
             state.errorDelete = null;
             return { ...state };
 
-        case DELETE_USER_SUCCESS:
+        case DELETE_BOOKING_SUCCESS:
             state.loadingDelete = false;
             state.dataDelete = action.payload;
             state.errorDelete = null;
             return { ...state };
 
-        case DELETE_USER_FAIL:
+        case DELETE_BOOKING_FAIL:
             state.loadingDelete = false;
             state.dataDelete = null;
             state.errorDelete = action.payload;
-            return { ...state };
-
-        case SEARCH_USER_REQUEST:
-            state.loadingSearch = true;
-            state.dataFetch = null;
-            state.errorSearch = null;
-            return { ...state };
-
-        case SEARCH_USER_SUCCESS:
-            state.loadingSearch = false;
-            state.dataFetch = action.payload;
-            state.errorSearch = null;
-            return { ...state };
-
-        case SEARCH_USER_FAIL:
-            state.loadingSearch = false;
-            state.dataFetch = null;
-            state.errorSearch = action.payload;
             return { ...state };
 
         default:
             return { ...state };
     }
 };
-export default userReducer;
+export default bookingReducer;

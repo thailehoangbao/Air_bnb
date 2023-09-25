@@ -17,3 +17,7 @@ export const UPDATE_USER_FAIL = "@@userReducer/UPDATE_USER_FAIL";
 export const DELETE_USER_REQUEST = "@@userReducer/DELETE_USER_REQUEST";
 export const DELETE_USER_SUCCESS = "@@userReducer/DELETE_USER_SUCCESS";
 export const DELETE_USER_FAIL = "@@userReducer/DELETE_USER_FAIL";
+
+export const SEARCH_USER_REQUEST = "@@userReducer/SEARCH_USER_REQUEST";
+export const SEARCH_USER_SUCCESS = "@@userReducer/SEARCH_USER_SUCCESS";
+export const SEARCH_USER_FAIL = "@@userReducer/SEARCH_USER_FAIL";

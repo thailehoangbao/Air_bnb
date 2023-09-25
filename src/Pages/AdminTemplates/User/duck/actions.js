@@ -1,4 +1,4 @@
-import { GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAIL, ADD_USER_REQUEST, ADD_USER_SUCCESS, ADD_USER_FAIL, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAIL, UPDATE_USER_REQUEST, UPDATE_USER_SUCCESS, UPDATE_USER_FAIL, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL} from "./constants";
+import { GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAIL, ADD_USER_REQUEST, ADD_USER_SUCCESS, ADD_USER_FAIL, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAIL, UPDATE_USER_REQUEST, UPDATE_USER_SUCCESS, UPDATE_USER_FAIL, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAIL } from "./constants";
 import api from "Utils/apiUtils";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -29,7 +29,7 @@ export const actAddUser = (user) => {
             .then((res) => {
                 if (res.data.statusCode === 200) {
                     MySwal.fire({
-                        title: "Bạn đã thêm người dùng thành công!",
+                        title: "Bạn đã thêm mới thành công!",
                         icon: "success"
                     })
                     const user = res.data.content.user;
@@ -111,6 +111,23 @@ export const actDeleteUser = (id, user) => {
             dispatch(actDeleteUserFail(error));
         })
         
+    }
+};
+
+export const actSearchUser = (name, user) => {
+    return (dispatch) => {
+        dispatch(actSearchUserRequest());
+        api
+        .get(`/users/search/` + name, user)
+        .then((res) => {
+            if(res.data.statusCode === 200) {
+                const user = res.data.content;
+                dispatch(actSearchUserSuccess(user));
+            }
+        })
+        .catch((error) => {
+            dispatch(actSearchUserFail(error));
+        })
     }
 };
 
@@ -205,6 +222,25 @@ const actDeleteUserSuccess = (data) => {
 const actDeleteUserFail = (error) => {
     return {
         type: DELETE_USER_FAIL,
+        payload: error
+    };
+};
+
+const actSearchUserRequest = () => {
+    return {
+        type: SEARCH_USER_REQUEST
+    };
+};
+const actSearchUserSuccess = (data) => {
+    return {
+        type: SEARCH_USER_SUCCESS,
+        payload: data,
+    };
+};
+
+const actSearchUserFail = (error) => {
+    return {
+        type: SEARCH_USER_FAIL,
         payload: error
     };
 };

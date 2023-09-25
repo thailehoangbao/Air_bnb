@@ -11,6 +11,10 @@ import binhLuanThueReducer from 'Pages/HomeTemplates/DetailPage/BinhLuan/duckBin
 import chiTietPhongThueReducer from 'Pages/HomeTemplates/DetailPage/duckDetail/reducerDetail';
 import danhSachPhongDatReducer from 'Pages/HomeTemplates/DetailPage/PopupDatPhong/duckDatPhong/reducerDatPhong';
 import phongThueTheoMaViTriReducer from 'Pages/HomeTemplates/SearchPage/duckSearchPage/reducerSearchPage';
+import locationReducer from 'Pages/AdminTemplates/Location/duck/reducer';
+import roomReducer from 'Pages/AdminTemplates/Room/duck/reducer';
+import bookingReducer from 'Pages/AdminTemplates/Booking/duck/reducer';
+
 const rootReducer = combineReducers({
     layDanhSachViTriReducer: layDanhSachViTriReducer,
     listPhongThueReducer: listPhongThueReducer,
@@ -23,7 +27,10 @@ const rootReducer = combineReducers({
     binhLuanThueReducer : binhLuanThueReducer,
     chiTietPhongThueReducer: chiTietPhongThueReducer,
     danhSachPhongDatReducer : danhSachPhongDatReducer,
-    phongThueTheoMaViTriReducer : phongThueTheoMaViTriReducer
+    phongThueTheoMaViTriReducer : phongThueTheoMaViTriReducer,
+    locationReducer,
+    roomReducer,
+    bookingReducer,
 });
 
 export default rootReducer;

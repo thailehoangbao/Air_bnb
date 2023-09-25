@@ -8,10 +8,16 @@ import {
   PhoneOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
-import { NavLink, Outlet, Navigate } from 'react-router-dom';
+import { NavLink, Outlet, Navigate, useNavigate } from 'react-router-dom';
 const { Header, Sider, Content } = Layout;
 
 export default function AdminTemplates() {
+  const navigate = useNavigate();
+  const handleDangXuat = () => {
+    localStorage.removeItem('USER_LOGIN');
+    localStorage.removeItem('token');
+    navigate('/auth', { replace: true });
+  };
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -74,7 +80,7 @@ if(!localStorage.getItem("USER_LOGIN")){
               height: 64,
             }}
           />
-          <button>Đăng xuất</button>
+          <button style={{fontSize:'20px', fontWeight:'600'}} onClick={() => handleDangXuat()}>Đăng xuất</button>
         </Header>
         <Content
           style={{

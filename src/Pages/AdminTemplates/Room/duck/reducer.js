@@ -1,4 +1,4 @@
-import { GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAIL, ADD_USER_REQUEST, ADD_USER_SUCCESS, ADD_USER_FAIL, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAIL, UPDATE_USER_REQUEST, UPDATE_USER_SUCCESS, UPDATE_USER_FAIL, DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAIL } from "./constants";
+import { GET_ROOM_REQUEST, GET_ROOM_SUCCESS, GET_ROOM_FAIL, ADD_ROOM_REQUEST, ADD_ROOM_SUCCESS, ADD_ROOM_FAIL, FETCH_ROOM_REQUEST, FETCH_ROOM_SUCCESS, FETCH_ROOM_FAIL, UPDATE_ROOM_REQUEST, UPDATE_ROOM_SUCCESS, UPDATE_ROOM_FAIL, DELETE_ROOM_REQUEST, DELETE_ROOM_SUCCESS, DELETE_ROOM_FAIL } from "./constants";
 
 const initialState = {
     loadingFetch: false,
@@ -20,123 +20,101 @@ const initialState = {
     loadingDelete: false,
     dataDelete: null,
     errorDelete: null,
-
-    loadingSearch: false,
-    dataSearch: null,
-    errorSearch: null,
 }
-const userReducer = (state = initialState, action) => {
+const roomReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_USER_REQUEST:
+        case FETCH_ROOM_REQUEST:
             state.loadingFetch = true;
             state.dataFetch = null;
             state.errorFetch = null;
             return { ...state };
 
-        case FETCH_USER_SUCCESS:
+        case FETCH_ROOM_SUCCESS:
             state.loadingFetch = false;
             state.dataFetch = action.payload;
             state.errorFetch = null;
             return { ...state };
 
-        case FETCH_USER_FAIL:
+        case FETCH_ROOM_FAIL:
             state.loadingFetch = false;
             state.dataFetch = null;
             state.errorFetch = action.payload;
             return { ...state };
 
-        case ADD_USER_REQUEST:
+        case ADD_ROOM_REQUEST:
             state.loadingAdd = true;
             state.dataAdd = null;
             state.errorAdd = null;
             return { ...state };
 
-        case ADD_USER_SUCCESS:
+        case ADD_ROOM_SUCCESS:
             state.loadingAdd = false;
             state.dataAdd = action.payload;
             state.errorAdd = null;
             return { ...state };
 
-        case ADD_USER_FAIL:
+        case ADD_ROOM_FAIL:
             state.loadingAdd = false;
             state.dataAdd = null;
             state.errorAdd = action.payload;
             return { ...state };
 
-        case GET_USER_REQUEST:
+        case GET_ROOM_REQUEST:
             state.loadingGet = true;
             state.dataGet = null;
             state.errorGet = null;
             return { ...state };
 
-        case GET_USER_SUCCESS:
+        case GET_ROOM_SUCCESS:
             state.loadingGet = false;
             state.dataGet = action.payload;
             state.errorGet = null;
             return { ...state };
 
-        case GET_USER_FAIL:
+        case GET_ROOM_FAIL:
             state.loadingGet = false;
             state.dataGet = null;
             state.errorGet = action.payload;
             return { ...state };
 
-        case UPDATE_USER_REQUEST:
+            case UPDATE_ROOM_REQUEST:
             state.loadingUpdate = true;
             state.dataUpdate = null;
             state.errorUpdate = null;
             return { ...state };
 
-        case UPDATE_USER_SUCCESS:
+        case UPDATE_ROOM_SUCCESS:
             state.loadingUpdate = false;
             state.dataUpdate = action.payload;
             state.errorUpdate = null;
             return { ...state };
 
-        case UPDATE_USER_FAIL:
+        case UPDATE_ROOM_FAIL:
             state.loadingUpdate = false;
             state.dataUpdate = null;
             state.errorUpdate = action.payload;
             return { ...state };
 
-        case DELETE_USER_REQUEST:
+            case DELETE_ROOM_REQUEST:
             state.loadingDelete = true;
             state.dataDelete = null;
             state.errorDelete = null;
             return { ...state };
 
-        case DELETE_USER_SUCCESS:
+        case DELETE_ROOM_SUCCESS:
             state.loadingDelete = false;
             state.dataDelete = action.payload;
             state.errorDelete = null;
             return { ...state };
 
-        case DELETE_USER_FAIL:
+        case DELETE_ROOM_FAIL:
             state.loadingDelete = false;
             state.dataDelete = null;
             state.errorDelete = action.payload;
-            return { ...state };
-
-        case SEARCH_USER_REQUEST:
-            state.loadingSearch = true;
-            state.dataFetch = null;
-            state.errorSearch = null;
-            return { ...state };
-
-        case SEARCH_USER_SUCCESS:
-            state.loadingSearch = false;
-            state.dataFetch = action.payload;
-            state.errorSearch = null;
-            return { ...state };
-
-        case SEARCH_USER_FAIL:
-            state.loadingSearch = false;
-            state.dataFetch = null;
-            state.errorSearch = action.payload;
             return { ...state };
 
         default:
             return { ...state };
     }
 };
-export default userReducer;
+export default roomReducer;
