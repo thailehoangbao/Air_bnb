@@ -13,7 +13,7 @@ export default function User() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const user = JSON.parse(localStorage.getItem(USER_LOGIN))?.content.user;
+  const user = JSON.parse(localStorage.getItem(USER_LOGIN))?.content?.user;
 
   const { data } = useSelector(state => state.listPhongDaDatUserReducer);
   const content = JSON.parse(localStorage.getItem(USER_LOGIN));
@@ -23,7 +23,7 @@ export default function User() {
     if(user) {
       dispatch(actFetchUserListPhongDaDat(user.id))
     }
-    return navigate('/login')
+    return navigate('/user')
   }, [])
 
   if (!JSON.parse(localStorage.getItem(USER_LOGIN))) {

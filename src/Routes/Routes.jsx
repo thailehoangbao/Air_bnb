@@ -23,6 +23,14 @@ const Routes = [
                 path: `search/:id`,
                 element: lazy(() => import('./../Pages/HomeTemplates/SearchPage/SearchPage')),
             },
+            {
+                path: `login`,
+                element: lazy(() => import('./../Pages/HomeTemplates/Login/LoginHome')),
+            },
+            {
+                path: `register`,
+                element: lazy(() => import('./../Pages/HomeTemplates/Register/RegisterHome')),
+            },
         ]
     },
     {
