@@ -189,6 +189,12 @@ export default function Location() {
     setIsModalOpen(true);
     if (isAdd) {
       setStateIsAdd(true);
+      setStateForm({
+        tenViTri: "",
+        tinhThanh: "",
+        quocGia: "",
+        hinhAnh: "",
+      })
     } else {
       setStateIsAdd(false);
       dispatch(actGetLocation(id))

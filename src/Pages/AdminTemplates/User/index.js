@@ -105,6 +105,7 @@ export default function User() {
     e.preventDefault();
     if (stateIsAdd) {
       dispatch(actAddUser(stateForm));
+
     } else {
       dispatch(actUpdateUser(currentId, stateForm));
     }
@@ -214,6 +215,14 @@ export default function User() {
     setIsModalOpen(true);
     if (isAdd) {
       setStateIsAdd(true);
+      setStateForm({
+        name: "",
+        email: "",
+        password: "",
+        birthday: "",
+        gender: true,
+        role: "ADMIN",
+      })
     } else {
       setStateIsAdd(false);
       dispatch(actGetUser(id))

@@ -277,6 +277,26 @@ export default function Room() {
     setIsModalOpen(true);
     if (isAdd) {
       setStateIsAdd(true);
+      setStateForm({
+        tenPhong: "",
+        khach: "",
+        phongNgu: "",
+        giuong: "",
+        phongTam: "",
+        moTa: "",
+        giaTien: "",
+        mayGiat: true,
+        banLa: true,
+        tivi: true,
+        dieuHoa: true,
+        wifi: true,
+        bep: true,
+        doXe: true,
+        hoBoi: true,
+        banUi: true,
+        maViTri: "",
+        hinhAnh: "",
+      })
     } else {
       setStateIsAdd(false);
       dispatch(actGetRoom(id))

@@ -218,6 +218,29 @@ export default function Booking() {
     setIsModalOpen(true);
     if (isAdd) {
       setStateIsAdd(true);
+      setStateForm({
+        maPhong: "",
+        ngayDen: "",
+        ngayDi: "",
+        soLuongKhach: "",
+        maNguoiDung: ""
+      });
+      setState({
+        errors: {
+          maPhong: "",
+          ngayDen: "",
+          ngayDi: "",
+          soLuongKhach: "",
+          maNguoiDung: ""
+        },
+        maPhongValid: false,
+        ngayDenValid: false,
+        ngayDiValid: false,
+        soLuongKhachValid: false,
+        maNguoiDungValid: false,
+    
+        formValid: false,
+      })
     } else {
       setStateIsAdd(false);
       dispatch(actGetBooking(id))
@@ -256,16 +279,16 @@ export default function Booking() {
           </div>
           <div className='form-group'>
             <label>Số lượng khách</label>
-            <input className="form-control" type="text" name='soLuongKhach' onChange={(e) => handleOnchange(e)} onBlur={(e) => handleValidation(e)} value={stateForm.soLuongKhach} />
+            <input className="form-control" type="number" name='soLuongKhach' onChange={(e) => handleOnchange(e)} onBlur={(e) => handleValidation(e)} value={stateForm.soLuongKhach} />
             <span className='text-danger'>{state.errors.soLuongKhach}</span>
           </div>
           <div className='form-group'>
             <label>Mã người dùng</label>
-            <input className="form-control" type="text" name='maNguoiDung' onChange={(e) => handleOnchange(e)} onBlur={(e) => handleValidation(e)} value={stateForm.maNguoiDung} />
+            <input className="form-control" type="number" name='maNguoiDung' onChange={(e) => handleOnchange(e)} onBlur={(e) => handleValidation(e)} value={stateForm.maNguoiDung} />
             <span className='text-danger'>{state.errors.maNguoiDung}</span>
           </div>
           <div className='text-right'>
-          <button type='submit' className='btn bg-blue-600 font-medium text-white ' size={"large"} onClick={(e) => handleBooking(e)} disabled={!state.formValid}>{stateIsAdd ? "Add" : "Update"}</button>
+            <button type='submit' className='btn bg-blue-600 font-medium text-white ' size={"large"} onClick={(e) => handleBooking(e)} disabled={!state.formValid}>{stateIsAdd ? "Add" : "Update"}</button>
           </div>
         </form>
       </Modal>
